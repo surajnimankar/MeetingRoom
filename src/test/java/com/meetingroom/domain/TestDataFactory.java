@@ -22,7 +22,7 @@ public class TestDataFactory {
         Reservation reservation = ReservationBuilder.getInstance()
                 .withReservationNumber("Suraj_1")
                 .withDuration(createDuration())
-                .withGuest(createGuest())
+                .withGuest(createGuest("Suraj", "12345"))
                 .withRoom(Room.ROOM_LARGE)
                 .withStatus(Status.STATUS_BOOKED)
                 .build();
@@ -30,8 +30,20 @@ public class TestDataFactory {
         return reservation;
     }
 
-    private static Guest createGuest() {
-       return new Guest("Suraj", "12345");
+    private static Reservation createReservation(String revNumber, String name, String contact) {
+        Reservation reservation = ReservationBuilder.getInstance()
+                .withReservationNumber(revNumber)
+                .withDuration(createDuration())
+                .withGuest(createGuest(name, contact))
+                .withRoom(Room.ROOM_LARGE)
+                .withStatus(Status.STATUS_BOOKED)
+                .build();
+
+        return reservation;
+    }
+
+    private static Guest createGuest(String name, String contact) {
+       return new Guest(name, contact);
     }
 
     private static Duration createDuration() {
