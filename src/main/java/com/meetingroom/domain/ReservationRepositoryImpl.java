@@ -13,8 +13,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-@Repository
-public class ReservationRepositoryImpl implements ReservationRepository {
+public class ReservationRepositoryImpl implements MockReservationRepository {
     public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
     static LocalDate bookingDate = LocalDate.parse("30/09/2017", formatter);
     static LocalTime startTime = LocalTime.parse("09:00");

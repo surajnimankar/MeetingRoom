@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class ReservationRepositoryImplTest {
 
-    private ReservationRepository repository;
+    private MockReservationRepository repository;
 
     @Before
     public void setUp() {

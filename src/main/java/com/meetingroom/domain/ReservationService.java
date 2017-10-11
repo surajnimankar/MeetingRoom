@@ -9,6 +9,7 @@ import java.util.Collection;
 public class ReservationService {
 
     @Autowired
+    //private MockReservationRepository repository;
     private ReservationRepository repository;
 
     public Collection<Reservation> getAllReservations() {
@@ -20,6 +21,7 @@ public class ReservationService {
     }
 
     public void cancelReservationByNumber(String reservationNumber) {
+
         repository.cancelReservation(reservationNumber);
     }
 
@@ -29,5 +31,9 @@ public class ReservationService {
 
     public void createReservation(Reservation reservation) {
         repository.createReservation(reservation);
+    }
+
+    public void deleteAll() {
+        repository.deleteAll();
     }
 }

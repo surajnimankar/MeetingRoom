@@ -1,12 +1,11 @@
 package com.meetingroom.domain;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Primary;
 
 import java.util.Collection;
 
-
-public interface ReservationRepository extends MongoRepository<Reservation, String> {
-
+public interface MockReservationRepository {
     Collection<Reservation> getAllReservations();
 
     Reservation getReservationByNumber(String reservationNumber);
