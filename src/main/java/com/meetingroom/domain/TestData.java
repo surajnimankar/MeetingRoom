@@ -8,6 +8,8 @@ import com.meetingroom.domain.valueobject.Status;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TestData {
 
@@ -41,5 +43,17 @@ public class TestData {
 
     private static Duration createDuration() {
         return new Duration(Constants.bookingDate, Constants.startTime, Constants.endTime);
+    }
+
+    public static List<Reservation> getAllReservations() {
+
+        List<Reservation> reservations = new ArrayList<Reservation>(  ) {
+            {
+                add(createReservation("Suraj_1", "Suraj","12345"));
+                add(createReservation("Pranav_1", "Pranav","12345"));
+            }
+        };
+
+        return reservations;
     }
 }
