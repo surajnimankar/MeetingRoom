@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 public class ReservationRepositoryImplTest {
 
-    private MockReservationRepository repository;
+    /*private MockReservationRepository repository;
 
     @Before
     public void setUp() {
@@ -82,5 +82,5 @@ public class ReservationRepositoryImplTest {
         Reservation insertedReservation = repository.getReservationByNumber("Pramod_1");
         assertNotNull(insertedReservation);
         assertEquals("Pramod_1", insertedReservation.getReservationNumber());
-    }
+    }*/
 }

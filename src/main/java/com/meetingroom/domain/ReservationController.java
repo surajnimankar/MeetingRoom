@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping("/reservations")
@@ -14,18 +15,18 @@ public class ReservationController {
     private ReservationService service;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<Reservation> getAllReservations() {
+    public List<Reservation> getAllReservations() {
         return service.getAllReservations();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Reservation getReservationByNumber(@PathVariable("id") String reservationNumber) {
-        return service.getReservationByNumber(reservationNumber);
+    public Reservation getReservationById(@PathVariable("id") String id) {
+        return service.getReservationById(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void cancelReservationByNumber(@PathVariable("id") String reservationNumber) {
-        service.cancelReservationByNumber(reservationNumber);
+    public void cancelReservation(@PathVariable("id") String id) {
+        service.cancelReservation(id);
     }
 
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)

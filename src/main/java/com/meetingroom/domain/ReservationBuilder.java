@@ -6,6 +6,7 @@ import com.meetingroom.domain.valueobject.Room;
 import com.meetingroom.domain.valueobject.Status;
 
 public class ReservationBuilder {
+    public String id;
     public String reservationNumber;
     public Guest guest;
     public Room room;
@@ -18,6 +19,11 @@ public class ReservationBuilder {
     }
     private ReservationBuilder() {
 
+    }
+
+    public ReservationBuilder withId(String id) {
+        this.id = id;
+        return this;
     }
 
     public ReservationBuilder withReservationNumber(String reservationNumber) {
@@ -50,7 +56,9 @@ public class ReservationBuilder {
     }
 
     public static ReservationBuilder fromExistingReservation(Reservation input) {
-        return new ReservationBuilder().withReservationNumber(input.getReservationNumber())
+        return new ReservationBuilder()
+                .withId( input.getId())
+                .withReservationNumber(input.getReservationNumber())
                 .withGuest(input.getGuest())
                 .withDuration(input.getDuration())
                 .withRoom(input.getRoom())

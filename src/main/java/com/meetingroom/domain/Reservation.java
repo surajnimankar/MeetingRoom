@@ -22,11 +22,20 @@ public class Reservation {
     }
 
     public Reservation(ReservationBuilder builder) {
+        this.id = builder.id;
         this.reservationNumber = builder.reservationNumber;
         this.guest = builder.guest;
         this.room = builder.room;
         this.duration = builder.duration;
         this.status = builder.status;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setReservationNumber(String reservationNumber) {
@@ -70,7 +79,7 @@ public class Reservation {
     }
 
     public String toString() {
-        return ("Reservation :[ reservationNumber : " + reservationNumber + ", guest : " + guest
-                + ", room : " + room + ", duration : " + duration + ", status : " + status + " ]");
+        return ("Reservation :{ id : " + id + ", reservationNumber : " + reservationNumber + ", guest : " + guest
+                + ", room : " + room + ", duration : " + duration + ", status : " + status + " }");
     }
 }

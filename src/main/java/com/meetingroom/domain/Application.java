@@ -21,7 +21,7 @@ public class Application implements CommandLineRunner {
     public void run(String... args) throws Exception {
         service.deleteAll();
 
-        service.createReservation( TestData.createReservation("Suraj_1", "Suraj","12345"));
-        service.createReservation( TestData.createReservation("Pranav_1", "Pranav","12345"));
+        service.createReservation(TestData.createReservation("Suraj_1", "Suraj","12345"));
+        service.createReservation(TestData.createReservation("Pranav_1", "Pranav","12345"));
     }
 }
