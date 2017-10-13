@@ -5,7 +5,9 @@ import com.meetingroom.domain.valueobject.Guest;
 import com.meetingroom.domain.valueobject.Room;
 import com.meetingroom.domain.valueobject.Status;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "Reservations")
 public class Reservation {
 
     @Id

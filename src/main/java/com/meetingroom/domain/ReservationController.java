@@ -22,27 +22,27 @@ public class ReservationController {
         this.service = service;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public List<Reservation> getAllReservations() {
         return service.getAllReservations();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "/{id}")
     public Reservation getReservationById(@PathVariable("id") String id) {
         return service.getReservationById(id);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @DeleteMapping(value = "/{id}")
     public void cancelReservation(@PathVariable("id") String id) {
         service.cancelReservation(id);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public void updateReservation(@RequestBody Reservation reservation) {
         service.updateReservation(reservation);
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createReservation(@RequestBody Reservation reservation) {
         service.createReservation(reservation);
     }
