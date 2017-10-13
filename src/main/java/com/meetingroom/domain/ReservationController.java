@@ -14,6 +14,14 @@ public class ReservationController {
     @Autowired
     private ReservationService service;
 
+    public ReservationService getService() {
+        return service;
+    }
+
+    public void setService(ReservationService service) {
+        this.service = service;
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public List<Reservation> getAllReservations() {
         return service.getAllReservations();

@@ -15,40 +15,26 @@ public class ReservationService {
 
     public List<Reservation> getAllReservations() {
 
-        return repository.findAll();
+        return repository.getAllReservations();
     }
 
     public Reservation getReservationById(String id) {
-        if(repository.exists(id)) {
-            return repository.findOne( id );
-        }
-        return null;
+        return repository.getReservationById(id);
     }
 
     public void cancelReservation(String id) {
-        if(repository.exists(id)) {
-            Reservation toBeCanceledReservation = repository.findOne(id);
-            repository.delete(id);
-
-            Reservation canceledReservation = ReservationBuilder.fromExistingReservation( toBeCanceledReservation )
-                    .withStatus( Status.STATUS_CANCELED )
-            .build();
-            repository.save( canceledReservation);
-        }
+        repository.cancelReservation( id );
     }
 
     public void updateReservation(Reservation reservation) {
-        if(repository.exists(reservation.getId())) {
-            repository.delete(reservation.getId());
-            repository.save( reservation );
-        }
+        repository.updateReservation( reservation );
     }
 
     public void createReservation(Reservation reservation) {
-        repository.save(reservation);
+        repository.createReservation( reservation );
     }
 
-    public void deleteAll() {
-        repository.deleteAll();
+    public void cleanUpData() {
+        repository.cleanUpData();
     }
 }

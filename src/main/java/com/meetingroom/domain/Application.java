@@ -19,7 +19,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        service.deleteAll();
+        service.cleanUpData();
 
         service.createReservation(TestData.createReservation("Suraj_1", "Suraj","12345"));
         service.createReservation(TestData.createReservation("Pranav_1", "Pranav","12345"));
