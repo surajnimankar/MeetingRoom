@@ -1,9 +1,11 @@
 package com.meetingroom.domain;
 
+import com.meetingroom.domain.valueobject.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -13,14 +15,6 @@ public class ReservationController {
 
     @Autowired
     private ReservationService service;
-
-    public ReservationService getService() {
-        return service;
-    }
-
-    public void setService(ReservationService service) {
-        this.service = service;
-    }
 
     @GetMapping
     public List<Reservation> getAllReservations() {
@@ -45,5 +39,10 @@ public class ReservationController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public void createReservation(@RequestBody Reservation reservation) {
         service.createReservation(reservation);
+    }
+
+    @GetMapping(value = "/rooms")
+    public List<Room> getAllRooms() {
+        return Arrays.asList(Room.values());
     }
 }

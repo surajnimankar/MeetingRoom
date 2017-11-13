@@ -1,30 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html ng-app="mainModule">
 
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
-</head>
+    <script data-require="angularjs@*" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="MainController.js"></script>
+    </head>
 
-<body ng-app="myapp">
-
-
-<div ng-controller="HelloController" >
-
-    <h2>Hello {{helloTo.title}} !</h2>
+<body ng-controller="MainController">
+<h1>{{message}}</h1>
+{{username}}
+<form name="searchform" ng-submit="search(username)">
+    <input type="search" required placeholder="username to find" ng-model="username">
+    <input type="submit" value="Search">
+</form>
+<div>
+    <div>First Name: {{ person.firstName }} </div>
+    <div>Last Name: {{person.lastName}} </div>
+    <div><img ng-src="{{person.imgSrc}}" title="{{person.firstName}} {{person.lastName}}"> </div>
 
 </div>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Contact</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat = "name in nameList">
+        <td>{{ name.name }}</td>
+        <td>{{ name.contactNumber | number }}</td>
+    </tr>
+    </tbody>
+</table>
 
 
-<script>
-angular.module("myapp", [])
-    .controller("HelloController", function($scope) {
-        $scope.helloTo = {};
-        $scope.helloTo.title = "World, AngularJS";
-    } );
-</script>
+<div>{{ error }}</div>
+<div>{{ reservations }}</div>
+<div><h1>Reservation List</h1></div>
+<table>
+    <thead>
+    <tr>
+        <th>Reservation Number</th>
+        <th>Guest Name</th>
+        <th>Contact Number</th>
+        <th>Room</th>
+        <th>Rev. Date</th>
+        <th>Rev. Time</th>
+        <th>Status</th>
 
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat = "reservation in reservations">
+        <td align="center">{{ reservation.reservationNumber }}</td>
+        <td align="center">{{ reservation.guest.name }}</td>
+        <td align="center">{{ reservation.guest.contactNumber }}</td>
+        <td align="center">{{ reservation.room }}</td>
+        <td align="center">{{ reservation.duration.bookingDate.dayOfMonth + "-" + reservation.duration.bookingDate.monthValue + "-" + reservation.duration.bookingDate.year}}</td>
+        <td align="center">{{ reservation.duration.startTime.hour + "." + reservation.duration.startTime.minute  + " :: " +
+               reservation.duration.endTime.hour + "." + reservation.duration.endTime.minute}}</td>
+        <td align="center">{{ reservation.status }}</td>
+    </tr>
+    </tbody>
+</table>
 
+<a href="addReservation.html">New Reservation</a>
 
 </body>
 
