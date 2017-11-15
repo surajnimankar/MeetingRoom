@@ -40,6 +40,17 @@
       "name": "Niranjan",
       "contactNumber": "12345"
     }];
+
+    $scope.cancelReservation = function(id){
+        var onCancel = function(response) {
+            $scope.cancelMessage = "Reservation Cancelled..!"
+        };
+
+        var onError = function(reason) {
+            $scope.cancelMessage = reason;
+        };
+        $http.delete("http://localhost:8080/reservations/" + id).then(onCancel, onError);
+    }
   };
 
   app.controller("MainController", MainController);
