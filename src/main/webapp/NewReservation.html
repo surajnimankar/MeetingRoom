@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html ng-app="AddReservModule">
-
-<head>
-    <script data-require="angularjs@*" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.min.js"></script>
-    <script src="AddReservationController.js"></script>
-</head>
-
-<body ng-controller="AddReservationController">
-<h1>New Reservation</h1>
+<div>
+<h2>New Reservation</h2>
 <form name="newReservationForm" ng-submit="newReservation()">
     Guest Name: <input type="Text" required placeholder="Name" ng-model="name"><br>
     Contact Number: <input type="Text" required placeholder="Contact Number" ng-model="contactNumber"><br>
@@ -17,10 +9,7 @@
             <option ng-repeat="room in rooms">{{ room }}</option>
 </select>
     <input type="submit" value="Save">
-    <a href="index.html">Cancel</a>
+    <a href="/#/reservations">Cancel</a>
 </form>
 <div>{{ addReservation }}</div>
-
-</body>
-
-</html>
+</div>

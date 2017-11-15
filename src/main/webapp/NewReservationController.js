@@ -1,7 +1,7 @@
 (function() {
 
-  var app = angular.module("AddReservModule", []);
-  var AddReservationController = function($scope, $http) {
+  var app = angular.module("MeetingRoom");
+  var NewReservationController = function($scope, $http, $location) {
 
     var onUserComplete = function(response) {
       $scope.rooms = response.data;
@@ -33,7 +33,7 @@
         };
 
         var onComplete = function(response) {
-              $scope.addReservation = "Reservation Added Sucessfully...!";
+              $location.path("/#/reservations");
         };
 
         var onError = function(reason) {
@@ -43,6 +43,6 @@
       };
   };
 
-  app.controller("AddReservationController", AddReservationController);
+  app.controller("NewReservationController", NewReservationController);
 
 }());

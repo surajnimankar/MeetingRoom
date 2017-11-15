@@ -1,7 +1,7 @@
 (function() {
 
-  var app = angular.module("mainModule", []);
-  var MainController = function($scope, $http) {
+  var app = angular.module("MeetingRoom");
+  var ReservationsController = function($scope, $http, $location) {
 
     var person = {
       firstName: "Suraj",
@@ -41,18 +41,18 @@
       "contactNumber": "12345"
     }];
 
-    $scope.cancelReservation = function(id){
-        var onCancel = function(response) {
-            $scope.cancelMessage = "Reservation Cancelled..!"
-        };
 
-        var onError = function(reason) {
-            $scope.cancelMessage = reason;
-        };
-        $http.delete("http://localhost:8080/reservations/" + id).then(onCancel, onError);
-    }
+    $scope.cancelReservation = function(id){
+               var onCancel = function(response) {
+               $location.path("/#/reservations");
+            };
+            var onError = function(reason) {
+            };
+            $http.delete("http://localhost:8080/reservations/" + id).then(onCancel, onError);
+
+        }
   };
 
-  app.controller("MainController", MainController);
+  app.controller("ReservationsController", ReservationsController);
 
 }());
