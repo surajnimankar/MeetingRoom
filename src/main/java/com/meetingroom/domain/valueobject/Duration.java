@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Duration {
 
-    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy");
     private LocalDate bookingDate;
     private LocalTime startTime;
     private LocalTime endTime;

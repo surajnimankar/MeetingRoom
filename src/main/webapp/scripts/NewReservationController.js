@@ -27,13 +27,14 @@
         var reservation = {
               reservationNumber:  $scope.name + "_1",
               guest: guest,
-              room: "ROOM_MEDIUM",
+              room: $scope.rooms,
               duration: duration,
               status: "STATUS_BOOKED"
         };
 
         var onComplete = function(response) {
-              $location.path("/#/reservations");
+              $location.path("/reservations");
+              $scope.successMsg = "Reservation Done..!";
         };
 
         var onError = function(reason) {

@@ -3,8 +3,8 @@
 <form name="newReservationForm" ng-submit="newReservation()">
     Guest Name: <input type="Text" required placeholder="Name" ng-model="name"><br>
     Contact Number: <input type="Text" required placeholder="Contact Number" ng-model="contactNumber"><br>
-    Booking Date: <input type="Text" required placeholder="Booking Date" ng-model="bookingDate"><br>
-    Time: <input type="Text" required placeholder="Start Time" ng-model="startTime"> : <input type="Text" required placeholder="End Time" ng-model="endTime"><br>
+    Booking Date: <input type="Text" required placeholder="d/m/YYYY" ng-model="bookingDate"><br>
+    Time: <input type="Text" required placeholder="00:00" ng-model="startTime"> : <input type="Text" required placeholder="00:00" ng-model="endTime"><br>
     Room: <select ng-model="rooms">
             <option ng-repeat="room in rooms">{{ room }}</option>
 </select>

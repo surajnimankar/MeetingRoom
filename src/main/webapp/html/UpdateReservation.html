@@ -1,0 +1,17 @@
+<div>
+<h2>Update Reservation :- {{ reservationNumber }}</h2>
+<form name="UpdateReservationForm" ng-submit="updateReservation()">
+    Guest Name: <input type="Text" ng-model="name" required placeholder="Guest Name"><br>
+    Contact Number: <input type="Text" ng-model="contactNumber" required placeholder="Contact Number"><br>
+    Booking Date: <input type="Text" ng-model="bookingDate" required placeholder="d/m/YYYY"><br>
+    Time: <input type="Text" ng-model="startTime" required placeholder="00:00"> : <input type="Text"     ng-model="endTime" required placeholder="00:00"><br>
+    Room: <select ng-model="rooms">
+    <option ng-repeat="room in rooms" ng-selected="{{ value == selectedRoom }}">{{ room }}</option>
+
+</select>
+    <input type="submit" value="Update">
+    <a href="/#/reservations">Cancel</a>
+</form>
+<div>{{ update }}</div>
+
+</div>

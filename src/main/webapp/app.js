@@ -4,16 +4,20 @@ var myApp = angular.module('MeetingRoom', ["ngRoute"]);
 myApp.config(function($routeProvider){
     $routeProvider.
     when('/reservations', {
-        templateUrl: '/Reservations.html',
+        templateUrl: '/html/Reservations.html',
         controller: 'ReservationsController'
         })
     .when('/update/:id', {
-        templateUrl: '/EditReservation.html',
-        controller: 'EditController'
+        templateUrl: '/html/UpdateReservation.html',
+        controller: 'UpdateReservationController'
         })
     .when('/new', {
-        templateUrl: '/NewReservation.html',
+        templateUrl: '/html/NewReservation.html',
         controller: 'NewReservationController'
+        })
+    .when('/play', {
+        templateUrl: '/html/PlayGround.html',
+        controller: 'PlayGroundController'
         })
     .otherwise({
         redirectTo: '/reservations'

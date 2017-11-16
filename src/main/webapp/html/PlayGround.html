@@ -1,0 +1,28 @@
+<div>
+<h1>{{message}}</h1>
+{{username}}
+<form name="searchform" ng-submit="search(username)">
+    <input type="search" required placeholder="username to find" ng-model="username">
+    <input type="submit" value="Search">
+</form>
+<div>
+    <div>First Name: {{ person.firstName }} </div>
+    <div>Last Name: {{person.lastName}} </div>
+    <div><img ng-src="{{person.imgSrc}}" title="{{person.firstName}} {{person.lastName}}"> </div>
+
+</div>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Contact</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat = "name in nameList">
+        <td>{{ name.name }}</td>
+        <td>{{ name.contactNumber | number }}</td>
+    </tr>
+    </tbody>
+</table>
+</div>
