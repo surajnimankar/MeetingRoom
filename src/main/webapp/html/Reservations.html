@@ -2,7 +2,7 @@
     <h2>Reservation List</h2>
     <a href="/#/new">New Reservation</a>
 </div>
-<table>
+<table class="blueTable">
     <thead>
     <tr>
         <th>Reservation Number</th>
@@ -18,14 +18,14 @@
     </thead>
     <tbody>
     <tr ng-repeat = "reservation in reservations">
-        <td align="center"><a href="/#/update/{{reservation.id}}">{{ reservation.reservationNumber }}</a></td>
-        <td align="center">{{ reservation.guest.name }}</td>
-        <td align="center">{{ reservation.guest.contactNumber }}</td>
-        <td align="center">{{ reservation.room }}</td>
-        <td align="center">{{ reservation.duration.bookingDate.dayOfMonth + "-" + reservation.duration.bookingDate.monthValue + "-" + reservation.duration.bookingDate.year}}</td>
-        <td align="center">{{ reservation.duration.startTime.hour + "." + reservation.duration.startTime.minute  + " :: " +
+        <td><a href="/#/update/{{reservation.id}}">{{ reservation.reservationNumber }}</a></td>
+        <td>{{ reservation.guest.name }}</td>
+        <td>{{ reservation.guest.contactNumber }}</td>
+        <td>{{ reservation.room }}</td>
+        <td>{{ reservation.duration.bookingDate.dayOfMonth + "-" + reservation.duration.bookingDate.monthValue + "-" + reservation.duration.bookingDate.year}}</td>
+        <td>{{ reservation.duration.startTime.hour + "." + reservation.duration.startTime.minute  + " :: " +
             reservation.duration.endTime.hour + "." + reservation.duration.endTime.minute}}</td>
-        <td align="center">{{ reservation.status }}</td>
+        <td>{{ reservation.status }}</td>
         <td><button ng-click="cancelReservation(reservation.id)">Cancel</button></td>
 
     </tr>
